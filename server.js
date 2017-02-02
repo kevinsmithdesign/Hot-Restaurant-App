@@ -2,7 +2,7 @@ var bodyParser = require('body-parser');
 var express = require('express');
 
 var app = express();
-var PORT process.env.PORT || 8080
+var PORT = process.env.PORT || 8080
 
 app.get('/', function(req,res){
 	res.send('Hello World');
@@ -20,4 +20,8 @@ app.use(function(req,res){
 	res.end(JSON.stringify(req.body,null,2));
 });
 
-app.listen(3000);
+//app.listen(3000);
+
+app.listen(PORT, function(){
+	console.log('App listening on PORT: ' + PORT);
+});
